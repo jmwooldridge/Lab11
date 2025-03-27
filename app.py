@@ -36,7 +36,7 @@ input_data[numerical_features] = scaler.transform(input_data[numerical_features]
 # Ensure input data shape matches the model's expected input shape
 input_data = input_data.to_numpy().astype(np.float32)
 
-# Check the model's input shape
+# Print the model summary and input data shape
 st.write(f"Model input shape: {model.input_shape}")
 st.write(f"Input data shape: {input_data.shape}")
 
