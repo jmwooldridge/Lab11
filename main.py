@@ -38,11 +38,14 @@ st.write(input_data)
 numerical_features = ['Span_ft', 'Deck_Width_ft', 'Age_Years', 'Num_Lanes', 'Condition_Rating']
 
 # Scale the numerical features
-input_data[numerical_features] = scaler.transform(input_data[numerical_features])
+scaled_values = scaler.transform(input_data[numerical_features])
 
 # Print the scaled values
 st.write("Scaled values:")
-st.write(input_data[numerical_features])
+st.write(scaled_values)
+
+# Update the DataFrame with scaled values
+input_data[numerical_features] = scaled_values
 
 # Ensure input data shape matches the model's expected input shape
 input_data = input_data.to_numpy().astype(np.float32)
