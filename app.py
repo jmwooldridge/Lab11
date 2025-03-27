@@ -40,6 +40,10 @@ input_data = input_data.to_numpy().astype(np.float32)
 st.write(f"Model input shape: {model.input_shape}")
 st.write(f"Input data shape: {input_data.shape}")
 
+# Reshape input data if necessary
+if len(input_data.shape) == 1:
+    input_data = input_data.reshape(1, -1)
+
 # Predict load capacity
 prediction = model.predict(input_data)
 
