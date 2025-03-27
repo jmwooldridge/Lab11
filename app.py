@@ -33,6 +33,13 @@ input_data = pd.DataFrame({
 numerical_features = ['Span_ft', 'Deck_Width_ft', 'Age_Years', 'Num_Lanes', 'Condition_Rating']
 input_data[numerical_features] = scaler.transform(input_data[numerical_features])
 
+# Ensure input data shape matches the model's expected input shape
+input_data = input_data.to_numpy().astype(np.float32)
+
+# Check the model's input shape
+st.write(f"Model input shape: {model.input_shape}")
+st.write(f"Input data shape: {input_data.shape}")
+
 # Predict load capacity
 prediction = model.predict(input_data)
 
