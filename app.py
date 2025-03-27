@@ -21,7 +21,7 @@ material = st.selectbox("Material", options=["Steel", "Concrete", "Composite"])
 # Preprocess inputs
 input_data = pd.DataFrame({
     'Span_ft': [span_ft],
-    'Deck_Width_ft': [deck_width_ft],
+    'Deck_Width_ft': [deck],
     'Age_Years': [age_years],
     'Num_Lanes': [num_lanes],
     'Condition_Rating': [condition_rating],
@@ -30,8 +30,10 @@ input_data = pd.DataFrame({
     'Material_Composite': [1 if material == "Composite" else 0]
 })
 
+numerical_features = ['Span_ft', 'Deck_Width_ft', 'Age_Years', 'Num_Lanes', 'Condition_Rating']
 input_data[numerical_features] = scaler.transform(input_data[numerical_features])
 
 # Predict load capacity
 prediction = model.predict(input_data)
-st.success(f"Predicted Maximum Load Capacity: {prediction[0][0]:.2f} tons")
+
+st.write(f"Predicted Load Capacity: {prediction[0][0]}")
