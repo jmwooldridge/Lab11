@@ -27,7 +27,8 @@ input_data = pd.DataFrame({
     'Condition_Rating': [condition_rating],
     'Material_Steel': [1 if material == "Steel" else 0],
     'Material_Concrete': [1 if material == "Concrete" else 0],
-    'Material_Composite': [1 if material == "Composite" else 0]
+    'Material_Composite': [1 if material == "Composite" else 0],
+    'Placeholder': [0]  # Add a placeholder feature
 })
 
 numerical_features = ['Span_ft', 'Deck_Width_ft', 'Age_Years', 'Num_Lanes', 'Condition_Rating']
